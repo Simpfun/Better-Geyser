@@ -1,0 +1,26 @@
+# 对低于 1.9 的客户端自动在酿造台中放入烈焰粉
+brewing-stand-gui-fix: true
+# 对低于 1.8 的客户端自动在附魔台中放入青金石
+enchanting-gui-fix: true
+# 修复睡莲叶的包围框，以防止低于 1.9 的客户端出现故障
+lily-pad-fix: true
+# 修复地毯的包围框，以防止 1.7 客户端在 1.14+ 服务器上出现故障
+carpet-fix: true
+# 修复梯子的包围框，以防止低于 1.9 的客户端出现故障
+ladder-fix: true
+# 如果设置为 true，此插件将为 1.8 及更低版本的客户端播放只在 1.9 及更高版本中的客户端播放的声音
+sound-fix: true
+# 如果设置为 true，此插件将在 1.7 落到粘液块上时应用速度
+slime-fix: true
+# 如果设置为 true，此插件将应用速度到 1.8 及更低版本的客户端以模拟鞘翅飞行
+elytra-fix: true
+#
+area-effect-cloud-particles: true
+# 向玩家通知他们正在使用过时的 Minecraft 版本
+# max-version 指定要通知的玩家的最大协议版本。请参阅 http://wiki.vg/Protocol_version_numbers 以获取协议版本号
+# interval 可以设置为 JOIN，以在加入服务器时通知玩家。如果将其设置为任何整数，它将每 x 刻度广播一次消息。
+versioninfo:
+  active: false
+  max-version: 47
+  interval: JOIN
+  message: '&7[&6Info&7] 该服务器正在运行 Minecraft %version% 。只有在使用该版本时才能保证最佳的游戏体验。'

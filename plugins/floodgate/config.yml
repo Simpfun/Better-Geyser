@@ -1,0 +1,58 @@
+# 在Floodgate中，基岩版玩家数据被发送时进行了加密
+# 以下值应指向Floodgate生成的密钥。
+# 公钥应用于Geyser（们），私钥应用于Floodgate（们）
+key-file-name: key.pem
+
+# Floodgate在基岩版用户名之前添加前缀以避免冲突
+# 但是，某些冲突可能会导致某些插件出现问题，因此此前缀可以通过下面的属性进行配置
+# 建议使用不包含字母数字的前缀，以避免可能的重复用户名。
+username-prefix: "."
+
+# 基岩版用户名中的空格是否应替换为'_'？
+replace-spaces: true
+
+# Floodgate的默认区域设置。默认情况下，Floodgate使用系统区域设置
+default-locale: zh_CN
+
+disconnect:
+  # 当使用无效密钥连接到服务器时，Geyser用户应收到的断开连接消息
+  invalid-key: 请通过官方Geyser连接
+  # 当使用正确的密钥连接到服务器，但数据格式不正确时，Geyser用户应收到的断开连接消息
+  invalid-arguments-length: 预期 {} 个参数，实际获取了 {}. 是否更新了Geyser？
+
+# 玩家链接的配置
+player-link:
+  # 是否启用链接系统。关闭此选项将阻止玩家使用链接功能，即使他们已经链接。
+  enabled: true
+
+  # 是否要求必须链接账户才能加入服务器。
+  require-link: false
+
+  # 当要托管自己的链接数据库时，请将以下选项设置为true。
+  # -> 这可以与全局链接一起使用。
+  # 请注意，在启用此选项之前，您必须安装链接数据库实现，否则会引起错误。
+  enable-own-linking: false
+
+  # 以下三个选项仅在 'enable-own-linking' 设置为 'true' 时生效
+
+  # 是否允许使用 /linkaccount 和 /unlinkaccount 命令
+  # 您还可以使用权限 floodgate.command.linkaccount 和 floodgate.command.unlinkaccount 允许特定人员使用这些命令。
+  # 这仅用于链接，已连接的人将保持连接
+  allowed: true
+  # 链接代码过期时间（以秒为单位）。
+  link-code-timeout: 300
+  # 您要使用的玩家链接数据库类型。仅在配置目录中找到多个数据库实现时才使用此选项。
+  type: sqlite
+
+  # 是否启用全局链接。全局链接是一个中央服务器，人们可以在其中链接他们的账户（Java 和基岩版），并在启用全局链接的服务器上加入。
+  # 全局链接的目标是通过不必在每个服务器上链接您的账户来简化链接过程。
+  # -> 您特定于服务器的链接数据库将优先于全局链接。
+  # 通常只有在没有互联网访问或仅具有有限互联网访问时，才会禁用全局链接。
+  enable-global-linking: true
+
+metrics:
+  enabled: true
+  uuid: d7f90364-a876-40cc-9b47-7205604339fc
+
+# 请勿更改此项
+config-version: 3
